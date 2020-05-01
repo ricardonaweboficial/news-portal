@@ -2,7 +2,15 @@ const { Router } = require('express');
 const routes = Router();
 
 const NewsController = require('./controllers/NewsController');
+const EverythingController = require('./controllers/EverythingController');
 
-routes.get('/', NewsController.index);
+
+// Top News 
+routes.get('/topHeadlines', NewsController.index);
+routes.post('/topSourceNews', NewsController.show);
+
+// Everything News
+routes.post('/everything', EverythingController.index);
+
 
 module.exports = routes;
