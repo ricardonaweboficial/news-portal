@@ -3,14 +3,11 @@ const axios = require('axios');
 
 module.exports = {
 	async index(req, res) {
-		const { query } = req.body;
-		const { language, page } = req.query;
+		const { query } = req.params;
 
 		const response = await axios.get(
 			'http://newsapi.org/v2/everything?' + 
 			`q=${query}&` +
-			`language=${language}&` +
-			`page=${page === '' ? 0 : page}&` +
 			`apiKey=${process.env.SECRET_KEY}`
 		);
 
