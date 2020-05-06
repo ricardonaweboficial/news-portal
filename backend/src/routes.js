@@ -10,7 +10,7 @@ routes.get('/topHeadlines', NewsController.index);
 routes.post('/topSourceNews', NewsController.show);
 
 // Everything News
-routes.post('/everything', EverythingController.index);
+routes.post('/everything/:query', EverythingController.index);
 
 
 module.exports = routes;
