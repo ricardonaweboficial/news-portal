@@ -4,19 +4,22 @@ import api from './services/api';
 import './global.css';
 import './App.css';
 
-import searchIcon from './assets/search.svg'
+import searchIcon from './assets/search.svg';
+import loading from './assets/loading.png';
+
+import formatUrl from './utils/formatUrl';
+import formatHours from './utils/formatHours';
 
 function App() {
 	const [ news, setNews ] = useState([]);
 	const [ query, setQuery ] = useState('');
- 
+  
 	useEffect(() => {
 		async function loadNews() {
 			try {
 				const response = await api.get('/topHeadlines');
 
 				setNews(response.data);	
-				console.log(news);
 			} catch (err) {
 				return alert('Erro ao carregar as noticias, recarregue a pagina e tente novamente.');
 			}
@@ -58,8 +61,8 @@ function App() {
 			<section>
 				<h1>List News</h1>
 				<ul>
-					{news.map(newInfo => (
-						<li key={newInfo.source.id === null ? newInfo.source.name : newInfo.source.id}>
+					{news.length > 0 ? news.map((newInfo, index) => {
+						return <li key={newInfo.source.id === null ? `${newInfo.source.name}${String(index)}` : `${newInfo.source.id}${String(index)}`}>
 							<div className="photo-new">
 								<div className="box-shadow">
 									<img src={newInfo.urlToImage} alt="News-Portal"/>
@@ -70,11 +73,11 @@ function App() {
 								</div>
 							</div>
 							<div className="url-and-date">
-								<h3><span>De:</span> Maisfutebol.iol.pt</h3>
-								<h3><span>Criado:</span> {newInfo.publishedAt}</h3>
+								<h3><span>De:</span> {formatUrl(newInfo.url)}</h3>
+								<h3><span>Criado:</span> {formatHours(newInfo.publishedAt)}</h3>
 							</div>
 						</li>
-					))}
+					}) : <img src={loading} alt="loading" id="loading"/>}
 				</ul>
 			</section>
 		</div>
