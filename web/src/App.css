@@ -9,7 +9,7 @@
 	display:flex;
 	justify-content:space-around;
 	align-items:center;
-	background:#FF8F50;
+	background:#00ACFF;
 	padding:10px 0;
 }
 
@@ -62,6 +62,17 @@
 	display:flex;
 	align-items:center;
 	flex-direction:column;
+}
+
+.news-container section ul #loading {
+	width:200px;
+	height:200px;
+	margin-top:100px;
+	animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+	to { transform: rotate(360deg); }
 }
 
 .news-container section ul li {
