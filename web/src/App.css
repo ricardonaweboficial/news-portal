@@ -86,14 +86,11 @@
 .news-container section ul li .photo-new {
 	width:100%;
 	position:relative;
-	
 }
-
 
 .photo-new .box-shadow img {
 	width:100%;
 }
-
 
 .photo-new .info-new {
 	position:absolute;
@@ -110,7 +107,6 @@
 .photo-new .info-new p {
 	font-size: 20px;
 	color:#f3f3f3;
-	/*192.168.15.6:3000*/
 }
 
 .url-and-date {
@@ -120,7 +116,6 @@
 	font-size:17px;
 	padding:20px 20px;
 	color:#fff;
-
 }
 
 .url-and-date span{
