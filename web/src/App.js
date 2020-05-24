@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
 
+// Api Rest
 import api from './services/api';
+
+// CSS
 import './global.css';
 import './App.css';
 
+
+// SVG icons
 import searchIcon from './assets/search.svg';
 import loading from './assets/loading.png';
 
+//Utils for project
 import formatUrl from './utils/formatUrl';
 import formatHours from './utils/formatHours';
 
@@ -23,9 +29,7 @@ function App() {
 			} catch (err) {
 				return alert('Erro ao carregar as noticias, recarregue a pagina e tente novamente.');
 			}
-	
 		}
-
 		loadNews();
 	}, []);
 
